@@ -1,4 +1,4 @@
 400
 20
-dfs
-wall
+kruskal
+mouse_thread
