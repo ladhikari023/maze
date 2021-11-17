@@ -1,4 +1,4 @@
 400
 20
-kruskal
+prims
 mouse_thread
