@@ -63,6 +63,8 @@ public class Settings {
                 return new WallFollower(false);
             case "wall_thread":
                 return new WallFollower(true);
+            case "pledge":
+                return new PledgeSolver();
         }
 
         throw new IllegalStateException("Invalid solver setting.");
