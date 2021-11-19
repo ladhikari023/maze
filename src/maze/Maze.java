@@ -11,6 +11,10 @@ public class Maze {
     private Vertex topRight;
     private int n;
 
+    /*
+     * Initializes a new empty maze, in which each cell is surrounded by walls.
+     * takes size of the maze (n x n) as parameter
+     */
     public Maze(int n) {
         cells = new ArrayList<>();
         this.n = n;
@@ -101,10 +105,16 @@ public class Maze {
         v2.addEdge(edge, d.reverse());
     }
 
+    /*
+     * Returns the vertex corresponding to the entrance of this maze.
+     */
     public Vertex getEntrance() {
         return this.entrance;
     }
 
+    /*
+     * Returns the vertex corresponding to the exit of the maze.
+     */
     public Vertex getExit() {
         return exit;
     }
@@ -113,6 +123,9 @@ public class Maze {
         return cells;
     }
 
+    /*
+     * Returns the cell at x, y.
+     */
     public Vertex getCell(int x, int y) {
         Vertex current = this.topRight;
         while (current.getX() != x) {

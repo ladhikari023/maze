@@ -7,6 +7,10 @@ public enum Direction {
     LEFT,
     RIGHT;
 
+    /*
+     * Reverses the given direction input
+     * returns the reversed direction
+     */
     public Direction reverse() {
         switch (this) {
             case UP: return DOWN;
@@ -18,6 +22,10 @@ public enum Direction {
         return null;
     }
 
+    /*
+     * Turns right in the maze from the perspective of the solver
+     * returns the right-turned direction
+     */
     public Direction turnRight() {
         switch (this) {
             case UP: return RIGHT;
@@ -28,6 +36,10 @@ public enum Direction {
         return null;
     }
 
+    /*
+     * Turns left in the maze from the perspective of the solver
+     * returns the left-turned direction
+     */
     public Direction turnLeft() {
         switch (this) {
             case UP : return LEFT;

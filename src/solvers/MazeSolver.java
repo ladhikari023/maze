@@ -7,19 +7,34 @@ import maze.Maze;
 import maze.MazeState;
 import maze.Vertex;
 
+/*
+ * Solves a maze while updating a Display.
+ */
 public abstract class MazeSolver {
     private Display display;
     private Vertex lastVisited;
     private Direction dir;
 
+    /*
+     * Create a new MazeSolver
+     * takes display to be updated during solving as first parameter
+     */
     public MazeSolver(Display d) {
         this.display = d;
     }
 
+    /*
+     * Create a new MazeSolver
+     */
     public MazeSolver() {
         this.display = null;
     }
 
+    /*
+     * Sends to the Display that the given cell (represented by the vertex) has
+     * been visited.
+     * takes vertex as parameter
+     */
     public void visit(Vertex v) {
         if (this.display != null) {
             if (lastVisited != null) {
@@ -29,6 +44,10 @@ public abstract class MazeSolver {
         }
     }
 
+    /*
+     * Solves the maze.
+     * takes maze as parameter
+\     */
     public void solve(Maze m) {
         // draw exit.
         visit(m.getEntrance());
@@ -36,12 +55,21 @@ public abstract class MazeSolver {
         this.solveFrom(m.getEntrance(), m.getExit());
     }
 
+    /*
+     * Solves from the given vertex as a starting point
+     */
     public abstract void solveFrom(Vertex start, Vertex exit);
 
+    /*
+     * Sets the display to be updated during solving.
+     */
     public void setDisplay(Display display) {
         this.display = display;
     }
 
+    /*
+     * Returns the display.
+     */
     protected Display getDisplay() {
         return this.display;
     }
@@ -70,6 +98,10 @@ public abstract class MazeSolver {
         return this.dir;
     }
 
+    /*
+     * Turns the solver in the given direction.
+     * takes direction as parameter
+     */
     public void turn(Direction d) {
        switch (d) {
            case UP:
@@ -86,6 +118,11 @@ public abstract class MazeSolver {
        }
     }
 
+    /*
+     * Turns according to the right-hand rule.
+     * takes current vertex as parameter
+     * returns the angle turned
+     */
     public int rightHand(Vertex current) {
         Direction dir = getCurrentDirection();
         if(current.getEdge(dir.turnRight()).getState() == MazeState.EMPTY) {

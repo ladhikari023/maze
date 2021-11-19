@@ -1,9 +1,6 @@
 package maze;
 
-import generators.DepthFirstGenerator;
-import generators.Kruskal;
-import generators.MazeGenerator;
-import generators.PrimsGenerator;
+import generators.*;
 import solvers.*;
 
 import java.io.File;
@@ -48,6 +45,8 @@ public class Settings {
                 return new Kruskal();
             case "prims":
                 return new PrimsGenerator();
+            case "aldous":
+                return new Aldous();
         }
 
         throw new IllegalStateException("Invalid generator setting.");

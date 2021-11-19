@@ -14,14 +14,22 @@ public class Vertex {
         edges = new HashMap<>();
     }
 
+    /*
+     * Adds an edge from a vertex in a specified direction
+     */
     public void addEdge(Edge edge, Direction direction) {
         edges.put(direction, edge);
     }
 
+    /*
+     * Creates an edge from a vertex in a specified direction and
+     * with a specific state
+     */
     public void addEdge(MazeState state, Direction direction) {
         Edge edge = new Edge(this, null, state);
         addEdge(edge, direction);
     }
+
 
     public Collection<Edge> getEdges() {
         return edges.values();
@@ -39,6 +47,9 @@ public class Vertex {
         return edges.get(d);
     }
 
+    /*
+     * Returns every vertex attached to this one via edges.
+     */
     public Collection<Vertex> getAdjacents() {
         HashSet<Vertex> vertices = new HashSet<>();
 
@@ -53,6 +64,10 @@ public class Vertex {
         return vertices;
     }
 
+    /*
+     * Returns every vertex attached to this one via an edge that is not a wall
+     * or boundary
+     */
     public List<Vertex> getReachableAdjacents() {
         Collection<Edge> edges = this.getEdges()
                                      .stream()
@@ -71,6 +86,10 @@ public class Vertex {
         return vertices;
     }
 
+    /*
+     * Returns every vertex that has not been visited, according to a set of
+     * visited vertices.
+     */
     public List<Vertex> getUnvisitedAdjacents(Set<Vertex> visited) {
         Predicate<Vertex> unvisitedFilter = v -> !visited.contains(v);
         List<Vertex> unvisited = getReachableAdjacents()
@@ -80,6 +99,10 @@ public class Vertex {
         return unvisited;
     }
 
+    /*
+     * Returns the vertex found by travelling along an edge, checking to
+     * ensure that the found vertex is not itself.
+     */
     public Vertex getVertexFromEdge(Edge e) {
         if(e.getStart() == this) {
             return e.getEnd();
@@ -88,6 +111,10 @@ public class Vertex {
         }
     }
 
+    /*
+     * Returns the edge connecting this vertex with the given vertex (if it
+     * exists). If there is no such edge, return null
+     */
     public Edge connectingEdge(Vertex v) {
         for (Edge e : getEdges()) {
             if (e.getStart() == v || e.getEnd() == v) {
@@ -97,6 +124,11 @@ public class Vertex {
         return null;
     }
 
+    /*
+     * Returns whether one of the edges of this vertex has an edge with the
+     * given MazeState. This can be used to check if a vertex counts as an
+     * entrance/exit.
+     */
     public boolean hasEdge(MazeState state) {
         for (Edge e : getEdges()) {
             if (e.getState() == state) return true;

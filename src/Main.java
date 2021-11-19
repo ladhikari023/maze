@@ -16,17 +16,17 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-//        if (args.length == 0) {
-//            System.out.println("Please give path to configuration file.");
-//            System.exit(1);
-//        } else {
+        if (args.length == 0) {
+            System.out.println("Please give path to configuration file.");
+            System.exit(1);
+        } else {
             try {
-                //settings = new Settings(new File(args[0]));
-                settings = new Settings(new File("src/ex.txt"));
+                settings = new Settings(new File(args[0]));
+                // = new Settings(new File("src/ex.txt"));
             } catch (FileNotFoundException e) {
                 System.out.println("File not found.");
                 System.exit(1);
-            //}
+            }
         }
         launch(args);
     }
