@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/*
+    handles input files
+ */
 
 public class Settings {
     private int windowSize;
@@ -36,6 +39,9 @@ public class Settings {
         return fps;
     }
 
+    /*
+        returns which generator to use based on the file input
+     */
     public MazeGenerator getGenerationAlgo() {
         int size = windowSize/cellSize;
         switch (this.generationAlgo) {
@@ -51,7 +57,9 @@ public class Settings {
 
         throw new IllegalStateException("Invalid generator setting.");
     }
-
+    /*
+        returns which solver to use based on the file input
+     */
     public MazeSolver getSolverAlgo() {
         switch (this.solverAlgo) {
             case "mouse_thread":
