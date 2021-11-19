@@ -9,12 +9,20 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
+/*
+ * Implementation of the random-mouse solving algorithm
+ */
 public class RandomMouseSolver extends MazeSolver {
     ExecutorService exec;
     Set<Vertex> visited;
     boolean multithreaded;
-
+    /*
+     * Creates a new solver using the random mouse algorithm.
+     * takes the parameter d as the display to be updated
+     * exec parameter is the executor that is used when creating a new RandomMouseSolver at
+     * an intersection.
+     * the parameter visited are the vertices that we cannot backtrack to.
+     */
     public RandomMouseSolver(Display d, ExecutorService exec,
                              Set<Vertex> visited) {
         super(d);

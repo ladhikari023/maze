@@ -3,7 +3,10 @@ package utility;
 import javafx.scene.paint.Color;
 
 import java.util.Random;
-
+/*
+ * Transitions between 10 different colors by incrementing and decrementing RGB
+ * values.
+ */
 public class ColorTransition {
     private final Color[] COLORS = {
             Color.PINK,
@@ -37,7 +40,9 @@ public class ColorTransition {
     public ColorTransition(Color c) {
         this.setColor(c);
     }
-
+    /*
+     * Increments r, g, and b values accordingly
+     */
     public void transition() {
         double desiredRed = Math.round(
                 COLORS[currentTransition].getRed() * 255
@@ -82,11 +87,17 @@ public class ColorTransition {
             currentTransition %= 9;
         }
     }
-
+    /*
+     * Returns a Color containing the current transition state.
+     */
     public Color getColor() {
         return Color.rgb((int) this.r, (int) this.b, (int) this.g);
     }
-
+    /*
+     * Sets the current color. Used mostly for if the transition isn't
+     * occurring and the color is preferred to be static.
+     *takes the parameter c the color
+     */
     public void setColor(Color c) {
         this.r = Math.round(c.getRed() * 255);
         this.b = Math.round(c.getBlue() * 255);

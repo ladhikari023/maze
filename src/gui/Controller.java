@@ -13,7 +13,9 @@ import utility.ColorTransition;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-
+/*
+ * This is the main controller for the GUI.
+ */
 public class Controller extends Display {
     @FXML
     Canvas canvas;
@@ -35,7 +37,9 @@ public class Controller extends Display {
         cellDrawingQueue = new ArrayBlockingQueue<>(2);
         transition = new ColorTransition();
     }
-
+    /*
+     * Called when the controller starts
+     */
     public void initialize() {
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -115,7 +119,10 @@ public class Controller extends Display {
             gc.fillRect(x, y+2, 2, cellSize-2);
         }
     }
-
+    /*
+     * Uses the settings to know the cell size and window size.
+     * takes the parameter s as settings
+     */
     public void setSettings(Settings s) {
         this.settings = s;
         this.canvas.setWidth(settings.getWindowSize());

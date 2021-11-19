@@ -3,7 +3,9 @@ package solvers;
 import maze.Direction;
 import maze.Edge;
 import maze.Vertex;
-
+/*
+ * Implementation of the pledge maze solver algorithm
+ */
 public class PledgeSolver extends MazeSolver {
     @Override
     public void solveFrom(Vertex start, Vertex exit) {

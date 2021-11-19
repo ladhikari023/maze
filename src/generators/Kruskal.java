@@ -15,6 +15,11 @@ import java.util.function.Consumer;
 
 
 public class Kruskal extends MazeGenerator {
+    /*
+     * Creates a new maze generator
+     * takes the parameter d as the display to be updated
+     * takes the parameter onGenerationComplete, which is used to call the solver
+     */
 
     public Kruskal(Display d, Consumer<Maze> onGenerationComplete) {
         super(d, onGenerationComplete);
@@ -23,6 +28,12 @@ public class Kruskal extends MazeGenerator {
     public Kruskal() {
         this(null, null);
     }
+
+    /*
+     * Generates the maze based upon the constraints of the algorithm
+     * takes the parameter size as the size of the maze to generate
+     * returns the generated maze
+     */
 
     @Override
     public Maze makeMaze(int size) {
