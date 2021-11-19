@@ -15,6 +15,12 @@ public class DepthFirstGenerator extends MazeGenerator {
     // make it easy to check if a cell has been visited
     Set<Vertex> visited;
 
+    /*
+     * Creates a new MazeGenerator
+     * update display during maze generation
+     * calls with the maze upon the maze finishing
+     */
+
     public DepthFirstGenerator(Display d, Consumer<Maze> onGenerationComplete) {
         super(d, onGenerationComplete);
         stack = new Stack<>();
@@ -25,6 +31,11 @@ public class DepthFirstGenerator extends MazeGenerator {
         this(null, null);
     }
 
+    /*
+     * Generates a maze based on the constraints of the algorithm
+     * takes size of the maze to generate as parameter
+     * returns the generated maze
+     */
     @Override
     public Maze makeMaze(int size) {
         Maze m = new Maze(size);

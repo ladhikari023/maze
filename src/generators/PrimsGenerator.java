@@ -13,7 +13,11 @@ import java.util.stream.Collectors;
 
 
 public class PrimsGenerator extends MazeGenerator{
-
+    /*
+     * Generates a new maze based upon the constraints of the algorithm
+     * takes size of maze to be generated as parameter
+     * returns the generated maze
+     */
     @Override
     public Maze makeMaze(int size) {
         List<Vertex> adjacents = new ArrayList<>();
