@@ -1,4 +1,4 @@
 400
-20
+40
 prims
-mouse_thread
+pledge
